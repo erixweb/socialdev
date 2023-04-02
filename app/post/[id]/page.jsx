@@ -37,9 +37,11 @@ export default async function PostPage({ params }) {
             <main className="wrap">
                 <header>
                     <div>
-                        <img src="/goback.svg" alt="Ir hacia atrás flecha" />
+                        <a href="/">
+                            <img src="/arrow-backwards.svg" alt="Ir hacia atrás flecha" />
+                        </a>
                         <h2>
-                            Tweet
+                            Post
                         </h2>
                     </div>
                 </header>
@@ -74,7 +76,7 @@ export default async function PostPage({ params }) {
                 </section>
                 <section>
                     {res.commentList.slice(0, 5).map(entry => (
-                        <article id={Math.random()}>
+                        <article key={entry.user}>
                             <div className="profile">
                                 <img src={entry.profileImage} alt={`Imagen de perfil de ${entry.user}`} />
                                 <h2>

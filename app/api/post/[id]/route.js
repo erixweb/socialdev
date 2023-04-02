@@ -23,7 +23,7 @@ export async function GET (request, { params }) {
                 {
                     "profileImage": "/vercel.svg",
                     "user": "Usuario #012",
-                    "content": "Me gustaría saber más de ti."
+                    "content": "OK!"
                 },
             ]
         },
@@ -44,7 +44,7 @@ export async function GET (request, { params }) {
                 {
                     "profileImage": "/vercel.svg",
                     "user": "Usuario #012",
-                    "content": "Me gustaría saber más de ti."
+                    "content": "OK!"
                 },
             ]
         },
@@ -65,7 +65,7 @@ export async function GET (request, { params }) {
                 {
                     "profileImage": "/vercel.svg",
                     "user": "Usuario #012",
-                    "content": "Me gustaría saber más de ti."
+                    "content": "OK!"
                 },
             ]
         },

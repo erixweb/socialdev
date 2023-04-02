@@ -37,7 +37,7 @@ export default async function HomePage() {
         </header>
         <section className="posts">
           {posts.json.slice(0, 10).map(post => (
-            <a href={`/post/${post.id}`}>
+            <a href={`/post/${post.id}`} key={post.id}>
               <article key={post.id} id={post.id}>
                 <div className="profile">
                   <img src={post.profileImage} alt={`Imagen del perfil de ${post.user}`} />

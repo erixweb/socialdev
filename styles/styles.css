@@ -77,6 +77,11 @@ main header {
 }
 main header div {
     display: inline-flex;
+    gap: 20px;
+}
+main header div img {
+    width: 48px;
+    height: 48px;
 }
 header.homepage {
     min-height: 130px;
