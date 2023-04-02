@@ -75,6 +75,9 @@ main header {
     margin-top: 0px;
     border-bottom: 1px solid gray;
 }
+main header div {
+    display: inline-flex;
+}
 header.homepage {
     min-height: 130px;
 }

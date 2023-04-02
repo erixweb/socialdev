@@ -36,9 +36,12 @@ export default async function PostPage({ params }) {
             </aside>
             <main className="wrap">
                 <header>
-                    <h2>
-                        Tweet
-                    </h2>
+                    <div>
+                        <img src="/goback.svg" alt="Ir hacia atrás flecha" />
+                        <h2>
+                            Tweet
+                        </h2>
+                    </div>
                 </header>
                 <section className="posts">
                     <article key={res.id} id={res.id}>
