@@ -1,5 +1,3 @@
-import '/styles/styles.css'
-
 export default async function PostPage({ params }) {
     const { id } = params
 
@@ -11,6 +9,7 @@ export default async function PostPage({ params }) {
     const post = await fetchPosts()
 
     const res = post.selected[0]
+
 
     return (
         <>
@@ -46,36 +45,43 @@ export default async function PostPage({ params }) {
                     </div>
                 </header>
                 <section className="posts">
-                    <article key={res.id} id={res.id}>
-                        <div className="profile">
-                            <img src={res.profileImage} alt={`Imagen del perfil de ${post.user}`} />
-                            <h2>
-                                {res.user}
-                            </h2>
-                        </div>
-                        <div className="content">
-                            <p>
-                                {res.content}
-                            </p>
-                            <ol>
-                                <li className="comments">
-                                    📖 {res.comments}
-                                </li>
-                                <li className="likes">
-                                    💟 {res.likes}
-                                </li>
-                                <li className="views">
-                                    👁️ {res.views}
-                                </li>
-                                <li className="share">
-                                    📲
-                                </li>
-                            </ol>
-                        </div>
-                    </article>
+                    {res ?
+                        <article key={res.id} id={res.id}>
+                            <div className="profile">
+                                <img src={res.profileImage} alt={`Imagen del perfil de ${post.user}`} />
+                                <h2>
+                                    {res.user}
+                                </h2>
+                            </div>
+                            <div className="content">
+                                <p>
+                                    {res.content}
+                                </p>
+                                <ol>
+                                    <li className="comments">
+                                        📖 {res.comments}
+                                    </li>
+                                    <li className="likes">
+                                        💟 {res.likes}
+                                    </li>
+                                    <li className="views">
+                                        👁️ {res.views}
+                                    </li>
+                                    <li className="share">
+                                        📲
+                                    </li>
+                                </ol>
+                            </div>
+                        </article>
+                        :
+                        <h1>
+                            Error: No Post found
+                        </h1>
+                    }
                 </section>
                 <section>
-                    {res.commentList.slice(0, 5).map(entry => (
+                    {res ?
+                        res.commentList.slice(0, 5).map(entry => (
                         <article key={entry.user}>
                             <div className="profile">
                                 <img src={entry.profileImage} alt={`Imagen de perfil de ${entry.user}`} />
@@ -89,7 +95,10 @@ export default async function PostPage({ params }) {
                                 </p>
                             </div>
                         </article>
-                    ))}
+                        ))
+                        : 
+                        <h1>Error: No comments found </h1>
+                    }
                 </section>
             </main>
             <aside className="right-aside">

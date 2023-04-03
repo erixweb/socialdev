@@ -1,6 +1,6 @@
-
 const fetchPosts = () => {
-  return fetch(`http://localhost:3000/api/posts`, { cache: "no-cache" })
+  return process.env.NODE_ENV == "development" ? fetch(`http://localhost:3000/api/posts`, { cache: "no-cache" })
+    .then(res => res.json()) : fetch(`https://socialdev.vercel.app/api/posts`, { cache: "no-cache" })
     .then(res => res.json())
 }
 

@@ -96,6 +96,9 @@ main section a {
     color: #fff;
     text-decoration: none;
 }
+/*
+    Posts / Chats
+*/
 article {
     border-bottom: 1px solid gray;
     padding: 20px;
@@ -107,8 +110,9 @@ article .profile {
     align-items: center;
 }
 article img {
-    width: 64px;
-    height: 64px;
+    border-radius: 7px;
+    width: 48px;
+    height: 48px;
 }
 article h2  {
     color: #fff;
@@ -127,7 +131,7 @@ article ol {
     display: flex;
 }
 /*
-    Buttons
+    Post Buttons
 */
 .likes, .comments, .views, .share {
     cursor: pointer;
