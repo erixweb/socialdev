@@ -1,12 +1,14 @@
+import LikeBtn from "../Components/LikeButton"
+
 const fetchPosts = () => {
   return process.env.NODE_ENV == "development" ? fetch(`http://localhost:3000/api/posts`, { cache: "no-cache" })
     .then(res => res.json()) : fetch(`https://socialdev.vercel.app/api/posts`, { cache: "no-cache" })
-    .then(res => res.json())
+      .then(res => res.json())
 }
 
 export default async function HomePage() {
   const posts = await fetchPosts()
-  
+
   return (
     <>
       <aside className="left-aside">
@@ -29,7 +31,7 @@ export default async function HomePage() {
           </a>
         </ol>
       </aside>
-      <main className="wrap">
+      <main>
         <header className="homepage">
           <h2>
             Home
@@ -37,40 +39,50 @@ export default async function HomePage() {
         </header>
         <section className="posts">
           {posts.json.slice(0, 10).map(post => (
-            <a href={`/post/${post.id}`} key={post.id}>
-              <article key={post.id} id={post.id}>
+
+            <article key={post.id} id={post.id}>
+              <a href={`/post/${post.id}`} key={post.id}>
                 <div className="profile">
                   <img src={post.profileImage} alt={`Imagen del perfil de ${post.user}`} />
                   <h2>
                     {post.user}
                   </h2>
                 </div>
+
                 <div className="content">
                   <p>
                     {post.content}
                   </p>
-                  <ol>
-                    <li className="comments">
-                      📖 {post.comments}
-                    </li>
-                    <li className="likes">
-                      💟 {post.likes}
-                    </li>
-                    <li className="views">
-                      👁️ {post.views}
-                    </li>
-                    <li className="share">
-                      📲
-                    </li>
-                  </ol>
                 </div>
-              </article>
-            </a>
+              </a>
+              <ol>
+                <li className="comments">
+                  📖 {post.comments}
+                </li>
+                <LikeBtn likes={post.likes} />
+                <li className="views">
+                  👁️ {post.views}
+                </li>
+                <li className="share">
+                  📲
+                </li>
+              </ol>
+            </article>
           ))}
         </section>
       </main>
       <aside className="right-aside">
-        Hello
+        <section className="card">
+            <small>
+              Trending en Cataluña
+            </small>
+            <h2>
+              Midufest
+            </h2>
+            <span>
+              6.439 publicaciones
+            </span>
+        </section>
       </aside>
     </>
   )

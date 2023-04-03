@@ -1,3 +1,5 @@
+import LikeBtn from "../../../Components/LikeButton"
+
 export default async function PostPage({ params }) {
     const { id } = params
 
@@ -61,9 +63,7 @@ export default async function PostPage({ params }) {
                                     <li className="comments">
                                         📖 {res.comments}
                                     </li>
-                                    <li className="likes">
-                                        💟 {res.likes}
-                                    </li>
+                                    <LikeBtn likes={res.likes}/>
                                     <li className="views">
                                         👁️ {res.views}
                                     </li>
