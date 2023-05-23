@@ -1,6 +1,7 @@
-import LikeBtn from "../Components/LikeButton"
+import LikeBtn from '../Components/LikeButton'
 
 const fetchPosts = () => {
+  console.log(process.env.NODE_ENV)
   return process.env.NODE_ENV == "development" ? fetch(`http://localhost:3000/api/posts`, { cache: "no-cache" })
     .then(res => res.json()) : fetch(`https://socialdev.vercel.app/api/posts`, { cache: "no-cache" })
       .then(res => res.json())
@@ -73,15 +74,15 @@ export default async function HomePage() {
       </main>
       <aside className="right-aside">
         <section className="card">
-            <small>
-              Trending en Cataluña
-            </small>
-            <h2>
-              Midufest
-            </h2>
-            <span>
-              6.439 publicaciones
-            </span>
+          <small>
+            Trending en Cataluña
+          </small>
+          <h2>
+            Midufest
+          </h2>
+          <span>
+            6.439 publicaciones
+          </span>
         </section>
       </aside>
     </>
